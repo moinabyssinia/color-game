@@ -17,10 +17,23 @@ body {
 h1 {
     color: white;
     text-align: center;
+    font-family: consolas;
     margin: 0;
+    padding: 30px;
+    background-color: rgb(152, 152, 165);
 }
 
 .color-display {
     font-size: 3rem;
     padding: 0 0;
+}
+.message-board{
+    background-color: white;
+    color: rgb(8, 127, 224);
+    margin-top: 0;
+    padding: 6px;
+    text-align: center;
+}
+.message{
+margin: 0 200px;
 }

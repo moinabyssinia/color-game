@@ -37,7 +37,8 @@ for(var i = 0; i < squares.length; i++){
                 squares[j].style.backgroundColor = pickedColor;
             };
         } else{
-            alert("wrong, try again")
+            //match the color of the body
+            this.style.backgroundColor = "#232323";
         }
     });
 }
