@@ -35,5 +35,8 @@ h1 {
     text-align: center;
 }
 .message{
-margin: 0 200px;
+margin: 0 150px;
+}
+.level{
+    padding: 0 5px;
 }

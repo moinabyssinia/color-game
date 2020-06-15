@@ -14,7 +14,8 @@ var colors = [
 // var z = Math.ceil(Math.random()*255);
 
 var squares = document.querySelectorAll(".square");
-
+var message = document.getElementsByClassName("message");
+var title = document.getElementsByTagName("h1")[0];
 //pick a color to display at the top
 var pickedColor = colors[3];
 
@@ -28,15 +29,23 @@ for(var i = 0; i < squares.length; i++){
 
 //check if user selected correct color
 
-//add event listener to squares
+//validate user's selection
 for(var i = 0; i < squares.length; i++){
     squares[i].addEventListener("click", function(){
+        //user selects the right box
         if(this.style.backgroundColor === pickedColor.toLowerCase()){
+            //display message to user 
+            message[0].textContent = "Correct!"
+
             // iterate over boxes to change color
             for(var j = 0; j < squares.length; j++){
                 squares[j].style.backgroundColor = pickedColor;
             };
+            title.style.backgroundColor = pickedColor;
+            title.style.color = "black";
         } else{
+            //display message to user 
+            message[0].textContent = "Try Again"
             //match the color of the body
             this.style.backgroundColor = "#232323";
         }
