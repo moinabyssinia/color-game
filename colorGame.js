@@ -38,6 +38,7 @@ for(var i = 0; i < squares.length; i++){
             message[0].textContent = "Correct!"
 
             // iterate over boxes to change color
+            //refractor the following 
             for(var j = 0; j < squares.length; j++){
                 squares[j].style.backgroundColor = pickedColor;
             };
