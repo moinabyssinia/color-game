@@ -53,11 +53,20 @@ function chooseLevel(level){
         //reset the colors
         resetColor();
     } else {
-        alert("hard");
-        console.log("test");
+        console.log("hard");
         //assign the number of boxes to work with
         boxes = allSquares;
+        console.log(boxes);
         
+        //randomly choose a box to assign the true color
+        selectedBox = Math.floor(Math.random()*boxes.length); 
+        console.log(selectedBox);
+
+        pickedColor = "rgb("+Math.ceil(Math.random()*255)+", "+Math.ceil(Math.random()*255)+", "+Math.ceil(Math.random()*255)+")";
+
+        //label the heading
+        heading[0].textContent = pickedColor.toUpperCase();
+
         //reset the colors
         resetColor();
         
@@ -75,41 +84,48 @@ function resetColor(){
         if(i === selectedBox){
             boxes[i].style.backgroundColor = pickedColor;
         } else{
+            //else randomly choose a color
             boxes[i].style.backgroundColor = "rgb("+Math.ceil(Math.random()*255)+", "+Math.ceil(Math.random()*255)+", "+Math.ceil(Math.random()*255)+")";
         }
         
     }
 }
 
-//add listener for level of difficulty
-levelEasy.addEventListener("click", function(){
-    chooseLevel("Easy");
-})
-levelHard.addEventListener("click", function(){
-    chooseLevel("Hard");
-})
+//add event listeners
+{
+    //add listener for level of difficulty
+    levelEasy.addEventListener("click", function(){
+        chooseLevel("Easy");
+    })
+    levelHard.addEventListener("click", function(){
+        chooseLevel("Hard");
+    })
 
-//add hovering effect
-levelEasy.addEventListener("mouseover", function(){
-    levelEasy.classList.toggle("hover");
-})
-levelEasy.addEventListener("mouseout", function(){
-    levelEasy.classList.toggle("hover");
-})
+    //add hovering effect
+    levelEasy.addEventListener("mouseover", function(){
+        levelEasy.classList.toggle("hover");
+    })
+    levelEasy.addEventListener("mouseout", function(){
+        levelEasy.classList.toggle("hover");
+    })
 
-levelHard.addEventListener("mouseover", function(){
-    this.classList.toggle("hover");
-})
+    levelHard.addEventListener("mouseover", function(){
+        this.classList.toggle("hover");
+    })
 
-levelHard.addEventListener("mouseout", function(){
-    this.classList.toggle("hover");
-})
+    levelHard.addEventListener("mouseout", function(){
+        this.classList.toggle("hover");
+    })
 
+    newColors[0].addEventListener("mouseover", function(){
+        this.classList.toggle("hover");
+    })
+    newColors[0].addEventListener("mouseout", function(){
+        this.classList.toggle("hover");
+    })
 
+}
 
-
-
-alert("I was here")
 //choose default level of difficulty
 chooseLevel("Hard")
 
@@ -142,11 +158,13 @@ for(var i = 0; i < boxes.length; i++){
 
 //add listener to the reset span
 newColors[0].addEventListener("click", function(){
+    //randomly choose a box to assign the true color
+    selectedBox = Math.floor(Math.random()*boxes.length); 
+    console.log(selectedBox);
+
+    pickedColor = "rgb("+Math.ceil(Math.random()*255)+", "+Math.ceil(Math.random()*255)+", "+Math.ceil(Math.random()*255)+")";
+
+    //label the heading
+    heading[0].textContent = pickedColor.toUpperCase();
     resetColor();
 });
-newColors[0].addEventListener("mouseover", function(){
-    this.classList.toggle("hover");
-})
-newColors[0].addEventListener("mouseout", function(){
-    this.classList.toggle("hover");
-})
