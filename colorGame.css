@@ -29,14 +29,20 @@ h1 {
 }
 .message-board{
     background-color: white;
-    color: rgb(8, 127, 224);
+    color: rgb(1, 6, 10);
     margin-top: 0;
     padding: 6px;
     text-align: center;
+    font-weight: bold;
 }
 .message{
 margin: 0 150px;
 }
 .level{
     padding: 0 5px;
+    font-weight: bold;
+    color: black;
+}
+.hover{
+    background-color: rgb(146, 155, 155);
 }

@@ -89,6 +89,26 @@ levelHard.addEventListener("click", function(){
     chooseLevel("Hard");
 })
 
+//add hovering effect
+levelEasy.addEventListener("mouseover", function(){
+    levelEasy.classList.toggle("hover");
+})
+levelEasy.addEventListener("mouseout", function(){
+    levelEasy.classList.toggle("hover");
+})
+
+levelHard.addEventListener("mouseover", function(){
+    this.classList.toggle("hover");
+})
+
+levelHard.addEventListener("mouseout", function(){
+    this.classList.toggle("hover");
+})
+
+
+
+
+
 alert("I was here")
 //choose default level of difficulty
 chooseLevel("Hard")
@@ -124,3 +144,9 @@ for(var i = 0; i < boxes.length; i++){
 newColors[0].addEventListener("click", function(){
     resetColor();
 });
+newColors[0].addEventListener("mouseover", function(){
+    this.classList.toggle("hover");
+})
+newColors[0].addEventListener("mouseout", function(){
+    this.classList.toggle("hover");
+})
