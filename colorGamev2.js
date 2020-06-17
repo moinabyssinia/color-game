@@ -1,7 +1,5 @@
-//problem//
-//update the heading and color for the hard level
-//create a branch and push this version
-
+//to upgrade//
+// how to always optimize for heading legibility 
 
 // define variables
 {
@@ -28,11 +26,9 @@
 //defining level of difficulty
 function chooseLevel(level){
     if(level === "Easy"){
-        console.log('easy')
         isEasy = true;
         //assign the number of boxes to work with
         boxes = firstRowSquares;
-        console.log(boxes);
         
         //hide the second row of boxes
         for(var k = 0; k < secondRowSquares.length; k++){
@@ -43,8 +39,6 @@ function chooseLevel(level){
         //select first row squares
         //randomly choose a box to assign the true color
         selectedBox = Math.floor(Math.random()*boxes.length); 
-        console.log(selectedBox);
-
         pickedColor = "rgb("+Math.ceil(Math.random()*255)+", "+Math.ceil(Math.random()*255)+", "+Math.ceil(Math.random()*255)+")";
 
         //label the heading
@@ -53,7 +47,6 @@ function chooseLevel(level){
         //reset the colors
         resetColor();
     } else {
-        console.log("hard");
         //assign the number of boxes to work with
         boxes = allSquares;
         console.log(boxes);
@@ -75,10 +68,8 @@ function chooseLevel(level){
     }
 }
 
-
 //define a function that gives color to boxes randomly
 function resetColor(){
-    console.log("resetting");
     for(var i = 0; i < boxes.length; i++){
         //assign the selected box its color
         if(i === selectedBox){
@@ -86,18 +77,28 @@ function resetColor(){
         } else{
             //else randomly choose a color
             boxes[i].style.backgroundColor = "rgb("+Math.ceil(Math.random()*255)+", "+Math.ceil(Math.random()*255)+", "+Math.ceil(Math.random()*255)+")";
-        }
-        
+        }       
     }
+     //remove the message
+    message[0].textContent = ""
+    title.style.backgroundColor = "steelblue";
+    title.style.color = "white";
 }
 
 //add event listeners
 {
     //add listener for level of difficulty
     levelEasy.addEventListener("click", function(){
+        //making it look selected when clicked
+        //remove selection from other buttons and add to "this"
+        levelHard.classList.remove("selected");
+        this.classList.add("selected");
         chooseLevel("Easy");
     })
     levelHard.addEventListener("click", function(){
+        //making it look selcted when cliked
+        levelEasy.classList.remove("selected");
+        this.classList.add("selected");
         chooseLevel("Hard");
     })
 
@@ -138,8 +139,8 @@ for(var i = 0; i < boxes.length; i++){
         //user selects the right box
         if(this.style.backgroundColor === pickedColor.toLowerCase()){
             //display message to user 
-            message[0].textContent = "Correct!"
-
+            message[0].textContent = "Correct!";
+            newColors[0].textContent = "Play Again?";
             // iterate over boxes to change color
             //refractor the following 
             for(var j = 0; j < boxes.length; j++){
@@ -160,11 +161,12 @@ for(var i = 0; i < boxes.length; i++){
 newColors[0].addEventListener("click", function(){
     //randomly choose a box to assign the true color
     selectedBox = Math.floor(Math.random()*boxes.length); 
-    console.log(selectedBox);
 
     pickedColor = "rgb("+Math.ceil(Math.random()*255)+", "+Math.ceil(Math.random()*255)+", "+Math.ceil(Math.random()*255)+")";
 
     //label the heading
     heading[0].textContent = pickedColor.toUpperCase();
     resetColor();
+    //change button message to new colors
+    newColors[0].textContent = "New Colors?";
 });
