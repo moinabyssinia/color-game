@@ -1,5 +1,6 @@
 //to upgrade//
-// how to always optimize for heading legibility 
+//how to always optimize for heading legibility 
+//refactor this code
 
 // define variables
 {
